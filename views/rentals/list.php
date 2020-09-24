@@ -34,14 +34,13 @@
 							<td>
 								<a href="?controller=rental&method=edit&id=<?php echo $rental->id?>" class="btn btn-warning" title="Editar Renta">Editar</a>
 								<a href="?controller=rental&method=delete&id=<?php echo $rental->id?>" class="btn btn-danger" title="Eliminar Renta">Eliminar</a>
-								<a href="?controller=rental&method=seeMovies&id=<?php echo $rental->id?>" data-toggle="modal" data-target="#editUser<?php echo $rental->id ?>" class="btn btn-success" >Ver películas</a>
+								<a href="?controller=rental&method=seeMovies&id=<?php echo $rental->id?>" class="btn btn-success" >Ver películas</a>
 							</td>
 						</tr>
 						
 					<?php endforeach ?>
 				</tbody>
 			</table>
-			<?php include 'views/rentals/ModalPeliculas.php' ?>
 		</section>
 	</section>
 </main>

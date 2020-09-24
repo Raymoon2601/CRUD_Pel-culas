@@ -53,10 +53,10 @@ class Rental
         }    
     }
 
-    public function getmoviesById()
+    public function getmoviesById($id)
     {
         try {
-            $strSql = "SELECT * FROM movie_rental mv inner join rentals r on r.id= mv.rental_id inner join movies m on m.id=mv.movie_id where r.id= :id";
+            $strSql = "SELECT mv.*,m.name as namemovie,m.description,u.name as nameuser FROM movie_rental mv inner join rentals r on r.id= mv.rental_id inner join movies m on m.id=mv.movie_id INNER join users u on r.user_id=u.id where r.id=:id";
             $arrayData = ['id' => $id];
             $query = $this->pdo->select($strSql, $arrayData);
             return $query;

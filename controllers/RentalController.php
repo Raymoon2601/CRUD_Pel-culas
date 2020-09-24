@@ -38,26 +38,26 @@ class rentalController
 
     public function save()
     {
-        //Organizar en un array los datos de la tabla movie
+        //Organizar en un array los datos de la tabla Rentas
         $dataMovie = [
-            'start_date'          => $_POST['fechaInicio'],
+            'start_date'        => $_POST['fechaInicio'],
             'end_date'          => $_POST['fechaFin'],
-            'total'          => $_POST['total'],
-            'user_id'   => $_POST['user_id'],
-            'status_id'       => $_POST['status_id'],
+            'total'             => $_POST['total'],
+            'user_id'           => $_POST['user_id'],
+            'status_id'         => $_POST['status_id'],
             
         ];
 
-        //Array de categorias
+        //Array de peliculas
         $arrayCategories = isset($_POST['movies']) ? $_POST['movies'] : [];        
 
         if(!empty($arrayCategories)) {
-            //Inserción de la Tabla Movie
+            //Inserción de la Tabla Rentas
             $respMovie = $this->rentalModel->newRental($dataMovie);
 
             //Obtener el ultimo ID registrado
             $lastIdMovie = $this->rentalModel->getLastId();
-            //Inserción de la Tabla category_movie
+            //Inserción de la Tabla movie_rental
             $respCategoryMovie = $this->rentalModel->saveCategoryMovie($arrayCategories, $lastIdMovie[0]->id);
 
         } else {
@@ -98,9 +98,9 @@ class rentalController
     {
         if(isset($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
-            $movies = $this->rentalModel->getmovieById($id);
+            $movies = $this->rentalModel->getmoviesById($id);
             require 'views/layout.php';
-            require 'views/rentals/ModalPeliculas.php';
+            require 'views/rentals/Movielist.php';
         } else {
             echo 'Error, Se requiere el id de la renta';
         }
