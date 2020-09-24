@@ -9,21 +9,21 @@
 				<thead>
 					<tr>
 						<th class="text-center">Id</th>
-						<th>Id de la renta</th>
-						<th>Nombre de la película</th>
+						<th class="text-center">Id de la renta</th>
+						<th class="text-center">Nombre de la película</th>
 						<th class="text-center">Descripción</th>
-						<th>Usuario</th>
+						<th class="text-center">Usuario</th>
 						
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach($movies as $movie): ?>
 						<tr>
-							<td><?php echo $movie->id ?></td>
-							<td><?php echo $movie->rental_id ?></td>
-							<td><?php echo $movie->namemovie ?></td>
+							<td class="text-center"><?php echo $movie->id ?></td>
+							<td class="text-center"><?php echo $movie->rental_id ?></td>
+							<td class="text-center"><?php echo $movie->namemovie ?></td>
 							<td class="text-center"><?php echo $movie->description ?></td>
-							<td><?php echo $movie->nameuser ?></td>
+							<td class="text-center"><?php echo $movie->nameuser ?></td>
 
 						</tr>
 					<?php endforeach ?>

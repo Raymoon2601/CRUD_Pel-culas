@@ -32,6 +32,7 @@
 							<td>
 								<a href="?controller=movie&method=edit&id=<?php echo $movie->id?>" class="btn btn-warning" title="Editar Usuario">Editar</a>
 								<a href="?controller=movie&method=delete&id=<?php echo $movie->id?>" class="btn btn-danger" title="Eliminar Usuario">Eliminar</a>
+								<a href="?controller=movie&method=seeCategories&id=<?php echo $movie->id?>" class="btn btn-success" >Ver Categorías</a>
 							</td>
 						</tr>
 					<?php endforeach ?>

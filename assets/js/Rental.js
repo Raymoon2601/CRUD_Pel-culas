@@ -1,5 +1,5 @@
 // Variable global para almancenar el listado de las Películas seleccionadas
-var arrayCategories = []
+var arrayMovies = []
 
 
 $("#addElement").click(function(e) {
@@ -14,7 +14,7 @@ $("#addElement").click(function(e) {
 
 		if(typeof existmovie(idmovie) === 'undefined') {
 
-			arrayCategories.push({
+			arrayMovies.push({
 				'id'  :  idmovie,
 				'name':  namemovie
 			})
@@ -28,14 +28,14 @@ $("#addElement").click(function(e) {
 		alert("Debe Seleccionar una Película ")
 	}
 
-	console.log(arrayCategories)
+	console.log(arrayMovies)
 
 })
 
 
 function existmovie(idmovie) {	
 	
-	let existmovie = arrayCategories.find(function (movie) {
+	let existmovie = arrayMovies.find(function (movie) {
 		return movie.id == idmovie
 	})
 	return existmovie
@@ -45,14 +45,14 @@ function existmovie(idmovie) {
 function showCategories() {
 	$("#list-categories").empty()
 
-	arrayCategories.forEach(function (movie) {
+	arrayMovies.forEach(function (movie) {
 		$("#list-categories").append('<div class="form-group"><button class="btn btn-danger" onclick="removeElement('+movie.id+')">X</button><span>'+movie.name+'</span></div>')
 	})
 }
 
 function removeElement(idmovie) {
-	let index = arrayCategories.indexOf(existmovie(idmovie))
-	arrayCategories.splice(index, 1)
+	let index = arrayMovies.indexOf(existmovie(idmovie))
+	arrayMovies.splice(index, 1)
 	showCategories()
 }
 
@@ -67,7 +67,7 @@ $("#save").click(function (e) {
 		total: 			$("#total").val(),
 		user_id: 		$("#IDusuario").val(),  
 		status_id: 		$("#IDestado").val(),    
-		movies:		arrayCategories  
+		movies:		arrayMovies  
 	}
 
 	//metodo ajax de tipo post para realizar el envio del formulario a PHP (Backend)

@@ -11,10 +11,10 @@
 
 			<div class="card-body w-100">
 				<form action="?controller=status&method=update" method="post">
-					<input type="hidden" name="id" value="<?php echo $status[0]->id ?>">
+					<input type="hidden" name="id" value="<?php echo $data[0]->id ?>">
 					<div class="form-group">
 						<label>Nombre</label>
-						<input type="text" name="name" class="form-control" placeholder="Ej. Pedro Perez" value="<?php echo $status[0]->name ?>">
+						<input type="text" name="name" class="form-control" placeholder="Ej. Pedro Perez" value="<?php echo $data[0]->name ?>">
 					</div>
 					<div class="form-group">
                         <label>Tipo de estado</label>

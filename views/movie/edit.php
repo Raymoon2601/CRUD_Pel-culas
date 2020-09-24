@@ -1,6 +1,6 @@
 <main class="container">
 	<div class="row">
-		<h1 class="col-md-12 d-flex justify-content-center">Nueva película</h1>
+		<h1 class="col-md-12 d-flex justify-content-center">Editar película</h1>
 	</div>
 
 	<section class="row mt-3">
@@ -21,13 +21,46 @@
 						<input type="text" name="description" class="form-control" placeholder="" value="<?php echo $movie[0]->description ?>">
 					</div>
 					<div class="form-group">
-						<label>ID Usuario</label>
-						<input type="text" name="user_id" class="form-control" placeholder="Ej. 1" value="<?php echo $movie[0]->user_id ?>">
-					</div>
+                        <label>Estado</label>
+                        <select name="user_id" class="form-control">
+                            <option value="">Seleccione...</option>
+                             <?php 
+                            	foreach($users as $user) {
+                            		if($user->id === $movie[0]->user_id) {
+                            ?>
+                                		<option selected value="<?php echo $user->id ?>"><?php echo $user->name ?></option>
+                            <?php
+                            		} else {
+                            ?>
+                                		<option value="<?php echo $user->id ?>"><?php echo $user->name ?></option>
+                            <?php
+                            		}
+                            	} 
+                            ?>
+                        </select>
+                        
+                    </div>
+
 					<div class="form-group">
-						<label>ID estado</label>
-						<input type="text" name="status_id" class="form-control" placeholder="Ej. 1" value="<?php echo $movie[0]->status_id ?>">
-					</div>
+                        <label>Estado</label>
+                        <select name="status_id" class="form-control">
+                            <option value="">Seleccione...</option>
+                             <?php 
+                            	foreach($statuses as $status) {
+                            		if($status->id === $movie[0]->status_id) {
+                            ?>
+                                		<option selected value="<?php echo $status->id ?>"><?php echo $status->name ?></option>
+                            <?php
+                            		} else {
+                            ?>
+                                		<option value="<?php echo $status->id ?>"><?php echo $status->name ?></option>
+                            <?php
+                            		}
+                            	} 
+                            ?>
+                        </select>
+                        
+                    </div>
 					<div class="form-group">
 						<button class="btn btn-primary">Guardar</button>
 					</div>

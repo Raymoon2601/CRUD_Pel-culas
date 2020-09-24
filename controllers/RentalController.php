@@ -7,6 +7,7 @@
 require 'models/Rental.php';
 require 'models/Movie.php';
 require 'models/User.php';
+require 'models/status.php';
 
 class rentalController
 {
@@ -19,6 +20,7 @@ class rentalController
         $this->rentalModel = new rental;
          $this->movie = new Movie;
          $this->users = new User;
+         $this->status = new status;
     }
 
     public function index()
@@ -32,6 +34,7 @@ class rentalController
     {
         $users = $this->users->getAll();
         $movies = $this->movie->getAll();
+        $statuses= $this->status->getAll();
         require 'views/layout.php';
         require 'views/rentals/new.php';
     }
@@ -87,6 +90,8 @@ class rentalController
     {
         if(isset($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
+            $users = $this->users->getAll();
+            $statuses= $this->status->getAll();
             $rental = $this->rentalModel->getById($id);
             require 'views/layout.php';
             require 'views/rentals/edit.php';

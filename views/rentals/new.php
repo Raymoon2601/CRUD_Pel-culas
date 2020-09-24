@@ -33,9 +33,14 @@
                         </select>
                         </div>
 					<div class="form-group">
-						<label>ID de estado</label>
-						<input id="IDestado" type="text" name="status_id" class="form-control" placeholder="Ej. 1">
-					</div>
+					<label>Estado</label>
+                        <select id="IDestado" class="form-control">
+                            <option value="">Seleccione...</option>
+                            <?php foreach($statuses as $status): ?>
+                                <option value="<?php echo $status->id ?>"><?php echo $status->name ?></option>
+                            <?php endforeach ?>
+                        </select>
+                        </div>
 					<div class="form-group row">
                         <div class="col-md-8">                            
                             <label>Películas</label>

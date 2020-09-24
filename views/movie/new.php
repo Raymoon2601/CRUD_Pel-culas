@@ -28,10 +28,6 @@
                             <?php endforeach ?>
                         </select>
                     </div> 
-					<div class="form-group">
-						<label>ID estado</label>
-						<input type="text" name="status_id" class="form-control" placeholder="Ej. 1">
-					</div>
 					 <div class="form-group row">
                         <div class="col-md-8">                            
                             <label>Categorías</label>

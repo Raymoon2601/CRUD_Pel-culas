@@ -42,7 +42,7 @@ class StatusController
         if(isset($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
             $types= $this->type->getAll();
-            $status = $this->statusModel->getById($id);
+            $data = $this->statusModel->getById($id);
             require 'views/layout.php';
             require 'views/statuses/edit.php';
         } else {

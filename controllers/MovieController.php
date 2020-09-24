@@ -16,8 +16,8 @@ class MovieController
     {
         $this->movieModel = new Movie;
         $this->users = new User;
-         $this->category = new Category;
-          $this->status = new status;
+        $this->category = new Category;
+        $this->status = new status;
 
     }
 
@@ -92,10 +92,24 @@ class MovieController
         if(isset($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
             $movie = $this->movieModel->getById($id);
+            $users = $this->users->getAll();
+            $statuses= $this->status->getAll();
             require 'views/layout.php';
             require 'views/movie/edit.php';
         } else {
             echo 'Error, Se requiere el id de la pelicula';
+        }
+    }
+
+    public function seeCategories() 
+    {
+        if(isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+            $movies = $this->movieModel->getcategoriesById($id);
+            require 'views/layout.php';
+            require 'views/movie/list_categories.php';
+        } else {
+            echo 'Error, Se requiere el id de la renta';
         }
     }
 

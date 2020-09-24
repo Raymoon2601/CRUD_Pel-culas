@@ -100,7 +100,7 @@ class Rental
 
     public function saveCategoryMovie($arrayCategories, $lastIdRental)
     {
-        $price=0;
+        $price=5;
         try {
             foreach ($arrayCategories as $movie) {
                 $data = [
